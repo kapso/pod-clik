@@ -13,7 +13,7 @@ namespace :deploy do
 
   desc 'Deploy to staging'
   task :staging do
-    confirm("This will deploy the 'develop' branch to staging.")
+    confirm("This will deploy the 'master' branch to staging.")
 
     puts 'Pushing...'
     run "git push git@heroku.com:#{STAGING_APP}.git master:master -f"
