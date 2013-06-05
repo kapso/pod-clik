@@ -1,5 +1,5 @@
 class UserSerializer < BaseSerializer
-  attributes :id, :first_name, :last_name, :email, :auth_token, :phone_number, :auth_token
+  attributes :id, :first_name, :last_name, :email, :auth_token, :phone_number
 
   def auth_token
     object.remember_me_token

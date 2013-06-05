@@ -3,17 +3,17 @@ class V1::UsersController < ApplicationController
   before_action :load_user, only: %i(show)
   before_action :load_school, only: %i(create update)
 
-  # GET /users/:id
+  # GET /v1/users/:id
   def show
     render json: @user
   end
 
-  # GET /users/self
+  # GET /v1/users/self
   def me
     render json: current_user
   end
 
-  # POST /users
+  # POST /v1/users
   def create
     render_error(I18n.t('errors.users.create.invalid_school'), :unprocessable_entity) and return if @school.blank?
     render_error(I18n.t('errors.users.create.email_taken'), :unprocessable_entity) and return if User.exists?(email: params[:user][:email])
@@ -28,7 +28,7 @@ class V1::UsersController < ApplicationController
     end
   end
 
-  # PUT /users/:id
+  # PUT /v1/users/:id
   def update
     render_error(I18n.t('errors.users.create.invalid_school'), :unprocessable_entity) and return if @school.blank?
 

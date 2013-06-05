@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   default_values emailable: true, phone_country_code: '1', phone_verified: false
 
+  validates :first_name, :phone_number, :email, presence: true
   validates :email, email_format: { message: 'is not valid' }, allow_blank: false, uniqueness: true
   # validates :phone_number, telephone: true
 
