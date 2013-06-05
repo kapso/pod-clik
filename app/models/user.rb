@@ -50,5 +50,7 @@ class User < ActiveRecord::Base
   def sms_phone_verify_code
     hash = { from: Settings.twilio.phone_number, to: phone_number, body: "Podclik auth code: #{phone_verify_code}" }
     Twilio::REST::Client.new(Settings.twilio.account_sid, Settings.twilio.auth_token).account.sms.messages.create(hash)
+  rescue => e
+    logger.error "[User] Could not send sms verify code for user=#{id}, error: #{e.message}"
   end
 end

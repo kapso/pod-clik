@@ -41,7 +41,7 @@ describe AuthController do
 
     it "should signout a user" do
       User.any_instance.should_receive(:sms_phone_verify_code)
-      request.env[Settings.auth_token_key] = user.remember_me_token
+      request.headers[Settings.auth_token_key] = user.remember_me_token
       post :signout
       response.code.should == "204"
     end

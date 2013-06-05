@@ -6,9 +6,7 @@ class ApplicationController < ActionController::Base
   protected
   def current_user
     @user ||= begin
-      auth_token = request.headers.env[Settings.auth_token_key]
-
-      if auth_token.present? && (user = User.find_by_auth_token(auth_token))
+      if (auth_token = request.headers[Settings.auth_token_key]).present? && (user = User.find_by_auth_token(auth_token))
         user.update(last_activity_at: Time.now)
         user
       end

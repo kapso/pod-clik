@@ -3,13 +3,9 @@ namespace :school do
   task import: :environment do
     require "csv"
 
-    puts "[ERROR] CSV source not provided, cannot run this task.\n" and return if ENV['csv_file'].blank? || ENV['csv_path'].blank?
+    puts "[ERROR] CSV source not provided, cannot run this task.\n" and return if ENV['csv_file'].blank?
 
-    file_content = if ENV['csv_file']
-      File.open(ENV['csv_file']).read
-    elsif ENV['csv_path']
-      Faraday.get(ENV['csv_path']).body
-    end
+    file_content = File.open(ENV['csv_file']).read
 
     puts "[ERROR] CSV content is blank, cannot run this task.\n"  and return if file_content.blank?
 

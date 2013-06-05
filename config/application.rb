@@ -20,11 +20,9 @@ module PodClik
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.auth_token_name = 'X-PODCLIK-AUTH-TOKEN'
-
     config.active_record.schema_format = :sql
 
     # http://stackoverflow.com/questions/8404001/mongoid-and-activerecord-generators
-    config.generators.orm :active_record
+    # config.generators.orm :active_record
   end
 end

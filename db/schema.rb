@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20130603215222) do
     t.string   "coordinates", limit: nil, null: false
     t.integer  "type_enum",               null: false
     t.integer  "state_enum",              null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "schools", ["coordinates"], name: "index_schools_on_coordinates", using: :gist
@@ -38,12 +38,15 @@ ActiveRecord::Schema.define(version: 20130603215222) do
     t.boolean  "emailable",                                   null: false
     t.string   "phone_country_code",              limit: 10,  null: false
     t.string   "phone_number",                    limit: 20,  null: false
+    t.string   "phone_verify_code",               limit: 20,  null: false
+    t.boolean  "phone_verified",                              null: false
     t.string   "time_zone",                       limit: 250
+    t.integer  "state_enum",                                  null: false
     t.integer  "school_id",                                   null: false
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.string   "reset_password_token"
