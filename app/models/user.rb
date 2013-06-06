@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
   validates :email, email_format: { message: 'is not valid' }, allow_blank: false, uniqueness: true
   # validates :phone_number, telephone: true
 
-  before_create :generate_phone_verify_code
-  before_create :generate_remember_me_token
+  before_create :generate_remember_me_token, :generate_phone_verify_code
   after_create :sms_phone_verify_code
   before_update :generate_remember_me_token, if: :crypted_password_changed?
 
