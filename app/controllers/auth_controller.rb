@@ -15,7 +15,7 @@ class AuthController < ApplicationController
       @user.signin!
       render json: @user
     else
-      render_error [I18n.t('errors.signin.invalid_credentials')], :not_found
+      render_error I18n.t('errors.signin.invalid_credentials'), :not_found
     end
   end
 
