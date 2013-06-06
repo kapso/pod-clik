@@ -1,12 +1,17 @@
 en:
   errors:
+    not_signed_in: "Request failed, auth token is required for this request"
+    server_issue: "Server is having some technical issues"
+    record_not_found: "Requested data cannot be found"
+
     signin:
-      invalid_phone_number: "Authentication failed. Please enter valid phone number."
-      invalid_email: "Authentication failed. Please enter valid email."
-      invalid_credentials: "Authentication failed. Please enter valid credentials."
+      invalid_phone_number: "Authentication failed. Please enter valid phone number"
+      invalid_email: "Authentication failed. Please enter valid email"
+      invalid_credentials: "Authentication failed. Please enter valid credentials"
 
     users:
       create:
-        invalid_school: "Please provide a valid School."
-        email_taken: "Email is already taken."
-        phone_number_taken: "Phone is already taken."
+        invalid_school: "Please provide a valid School"
+        email_taken: "Email is already taken"
+        phone_number_taken: "Phone is already taken"
+

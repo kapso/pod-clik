@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_auth!
-    render_error 'Request failed, auth token is required for this request', :unauthorized if !logged_in?
+    render_error(I18n.t('errors.not_signed_in'), :unauthorized) if !logged_in?
   end
 
   def permitted_params
@@ -32,9 +32,9 @@ class ApplicationController < ActionController::Base
 
     case e
     when ActiveRecord::RecordNotFound
-      render_error('Requested data cannot be found', :not_found)
+      render_error I18n.t('errors.record_not_found'), :not_found
     else
-      render_error('Server is having some technical issues', :not_found)
+      render_error I18n.t('errors.server_issue')
     end
   end
 end
