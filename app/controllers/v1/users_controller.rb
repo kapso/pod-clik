@@ -17,7 +17,7 @@ class V1::UsersController < ApplicationController
   def create
     render_error(I18n.t('errors.users.create.invalid_school'), :unprocessable_entity) and return if @school.blank?
     render_error(I18n.t('errors.users.create.email_taken'), :unprocessable_entity) and return if User.exists?(email: params[:user][:email])
-    render_error(I18n.t('errors.users.create.iphone_number_taken'), :unprocessable_entity) and return if User.exists?(phone_number: params[:user][:phone_number])
+    render_error(I18n.t('errors.users.create.phone_number_taken'), :unprocessable_entity) and return if User.exists?(phone_number: params[:user][:phone_number])
 
     @user = User.new permitted_params.user
 
