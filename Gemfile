@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.0.rc1'
+gem 'rails', '4.0.0'
 gem 'pg'
 
 gem 'active_model_serializers'
@@ -11,7 +11,9 @@ gem 'enumerize'
 gem 'escape_utils'
 gem 'faraday'
 gem 'oj'
+gem 'puma'
 gem 'rails_config'
+gem 'sandi_meter'
 gem 'sorcery', github: 'NoamB/sorcery', branch: 'master'
 gem 'turbolinks'
 gem 'twilio-ruby'
